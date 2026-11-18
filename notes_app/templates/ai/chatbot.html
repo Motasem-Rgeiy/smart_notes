@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id='chatbot-container' class="grow flex flex-col gap-4">
+    <div class="flex flex-col items-center py-2 gap-1">
+        <h1 class=" tracking-wider text-2xl">AI Chatbot</h1>
+        <p class=" tracking-widest text-lg">Ask AI about anything you don't know about the application.</p>
+    </div>
+
+    <div id="user-container" class="p-3 flex flex-col gap-1 items-start justify-end ">
+        <h2 id="user-name" class="tracking-wider">{{request.user.first_name|default:request.user.username }}</h2>
+        <textarea id="user-input"  class="w-1/2 bg-slate-900 h-60 p-3 focus:outline-1"  placeholder="Write your question..."></textarea>
+        <p id="error-msg" class="text-red-600 hidden">You did not enter anything!</p>
+        <button id="user-btn" class="bg-sky-800 mt-3 ml-3 px-6 py-2 flex gap-2 items-center rounded-lg cursor-pointer user-btn">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>Send</span>
+        </button>
+    </div>
+
+    <div id="ai-container" class="p-3  flex-col gap-1 items-end justify-end hidden animate-slide-in ">
+        <h2 id="ai-name"  class="mr-2 tracking-wider">AI</h2>
+        <textarea  id="ai-output" disabled class="w-1/2 bg-slate-900 h-60 p-3 rounded-lg " name="" id="ai-box" placeholder="Waiting...."></textarea>
+    </div>
+
+</div>
+
+{% load static %}
+<script src="{% static "js/ai/chatbot.js" %}"></script>
+
+{% endblock  %}

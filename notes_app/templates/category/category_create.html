@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grow flex justify-center items-center">
+    <div class="bg-slate-900 p-4 rounded-lg flex flex-col gap-9 w-1/2 ">
+        <div class="flex items-center gap-2 text-2xl">
+            <i class="fa-solid fa-notes-medical"></i>
+            <h1 class="tracking-widest">Create a new category</h1>
+        </div>
+
+        <form class="flex flex-col gap-4"  method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="flex gap-2 items-center">
+                <label for="">Name</label>
+                {{ form.name }}
+            </div>
+            {% if form.name.errors %}
+                {% for error in form.name.errors %}
+                    <p class="text-red-600 text-sm">{{error}}</p>
+                {% endfor %}
+            {% endif %}
+            
+       
+
+            <button class="flex items-center justify-center gap-2 text-xl bg-slate-950  m-auto py-3 px-5 rounded-lg cursor-pointer hover:bg-green-700 transition duration-500 focus:outline-1" type="submit">
+                <i class="fa-solid fa-plus"></i>
+               <span>Create</span>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

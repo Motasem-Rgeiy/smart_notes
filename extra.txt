@@ -1,0 +1,2 @@
+1- Add Redis & celery to: email & webScraping & AI API to speed the application
+2- Let selenium to open the page of the selected title to extract the content from it.

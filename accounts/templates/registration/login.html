@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="grow flex flex-col justify-center items-center">
+    <div class="bg-slate-900 flex flex-col w-1/4 rounded-lg p-4">
+        <div class="flex items-center justify-center text-xl border-b-2 w-full">
+            <i class="fa-solid fa-circle-user"></i>
+            <h1 class=" p-4  font-bold tracking-widest text-center">Log In</h1>
+
+           
+        </div>
+        
+        <form class="p-4 flex flex-col gap-4" action="{% url "login" %}" method="POST">
+            {% csrf_token %}
+            
+            {% include "common/form.html" with form=form %}
+             
+
+            <div class="flex flex-col gap-2">
+                <label class="tracking-widest font-semibold" for="">Username</label>
+                {{ form.username }}
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <label class="tracking-widest font-semibold" for="">Password</label>
+                {{form.password}}
+            </div>
+            <button class="bg-slate-950 cursor-pointer flex items-center justify-center gap-1 w-fit m-auto py-3 px-7 rounded-lg hover:bg-green-600 hover:transition hover:duration-500 focus:outline-1" type="submit">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <span>Login</span>
+            </button>
+        </form>
+    </div>
+
+</div>
+{% endblock  %}

@@ -1,0 +1,150 @@
+Q: Can I create a new note?
+A: Yes. You can create a new note by clicking the "Create Note" button and entering the note title, content, and category.
+
+Q: Can I edit an existing note?
+A: Yes. You can open any note and edit its title, content, category, or other available information.
+
+Q: Can I delete a note?
+A: Yes. You can delete a note from its details page. The application will ask you to confirm the deletion.
+
+Q: Can I search for a specific note?
+A: Yes. You can search for notes using the search feature. You can search by the note title or content.
+
+Q: Can I organize my notes into categories?
+A: Yes. You can assign a category to each note to keep your notes organized.
+
+Q: Can I create my own categories?
+A: Yes. You can create new categories according to your needs.
+
+Q: Can I upload files to my notes?
+A: Yes. You can attach files to your notes, such as PDF, image, and text files.
+
+Q: Can I download an attachment?
+A: Yes. You can download an attachment from the note where it was uploaded.
+
+Q: Can I export a single note?
+A: Yes. You can export an individual note from the note details page.
+
+Q: What formats can I use to export a note?
+A: You can export a note as a PDF, TXT, or JSON file.
+
+Q: Can I export all my notes?
+A: Yes. You can export all your notes from the dashboard.
+
+Q: What formats can I use to export all my notes?
+A: You can export all your notes as PDF, CSV, or JSON files.
+
+Q: Where can I find the export button?
+A: You can find the export button on the note details page for exporting a single note. You can find the export-all option on the dashboard.
+
+Q: Will exported files be downloaded to my computer?
+A: Yes. The application generates the requested file and your browser downloads it directly to your device.
+
+Q: Can I import technology news into Smart Notes?
+A: Yes. You can fetch technology news from Hacker News and import selected articles as notes.
+
+Q: What information is imported from a technology article?
+A: The application can import information such as the article title, source, URL, publication date when available, and the main article content when it can be extracted.
+
+Q: Can I import multiple news articles?
+A: Yes. You can select multiple articles from the available news results and import them as notes.
+
+Q: Will the application create duplicate notes when importing the same article?
+A: No. The application checks whether an article has already been imported to prevent duplicate notes.
+
+Q: Can I summarize a note using artificial intelligence?
+A: Yes. Smart Notes provides an AI feature that can summarize the content of a note.
+
+Q: Can AI improve the content of my note?
+A: Yes. You can use AI to rewrite and improve the content of a note.
+
+Q: Can AI generate a title for my note?
+A: Yes. AI can suggest a suitable title based on the content of your note.
+
+Q: Can AI extract the key points from a note?
+A: Yes. AI can analyze the note and extract its most important points.
+
+Q: Does Smart Notes have an AI chatbot?
+A: Yes. Smart Notes includes an AI chatbot that can answer questions about the application and explain how to use its features.
+
+Q: Can I ask the AI chatbot general questions?
+A: The AI chatbot is designed primarily to answer questions related to Smart Notes and its features. It may not provide assistance for unrelated topics.
+
+Q: Can I use the AI chatbot to learn how to use Smart Notes?
+A: Yes. You can ask the chatbot how to create, edit, delete, search, organize, export, or import notes.
+
+Q: Does Smart Notes have user accounts?
+A: Yes. Each user can create a personal account and manage their own notes and files.
+
+Q: Can I create a new account?
+A: Yes. You can register for a new account using the registration page.
+
+Q: Can I log in to my account?
+A: Yes. Registered users can log in using their account credentials.
+
+Q: Can I log out of my account?
+A: Yes. You can log out from your account at any time.
+
+Q: Can I edit my profile?
+A: Yes. You can update your profile information from your account settings.
+
+Q: Can I change my password?
+A: No, this feature is not provided yet!
+
+
+Q: Can other users see my notes?
+A: No. Your notes are private and other users cannot access them through the application.
+
+Q: Does Smart Notes send email notifications?
+A: Yes. The application can send email notifications for supported events and actions.
+
+Q: Can I contact the administrator?
+A: Yes. You can contact the application administrator using the contact form available in the application.
+
+Q: What should I do if I have a problem with the application?
+A: You can use the AI chatbot for questions about using Smart Notes. If you encounter a problem that requires administrator assistance, you can contact the administrator through the contact form.
+
+Q: Is Smart Notes available on mobile devices?
+A: Yes. The application has a responsive interface designed to work on different screen sizes, including mobile devices.
+
+Q: What is Smart Notes?
+A: Smart Notes is a web application for creating, organizing, searching, managing, importing, and exporting personal notes and files. It also provides AI-powered features to help users work with their notes.
+
+Q: How can i use the application?
+A: There is a dashboard in the application, you can acccess it by click the profile button.
+
+Q: how can i access the AI features ?
+A: Chose the note you want, go to the edit page and you will find them in red color under the content input box
+
+Q: Can AI looks for my data ?
+A: No, AI only helps you to learn what you don't know about the application.
+
+Q: Is there a way to contact the developer of the application?
+A: Yes, via email 'muohtassomerghei@gmail.com'.
+
+Q: is the application going to provided by other features?
+A: Yes, the developer is working on that.
+
+Q: Can i login via Facebook?
+A: No, But this is a good suggestion you can contact the developer for.
+
+Q: Can i create notes as i want ?
+A: Yes, you can.
+
+Q: What permissions are available for category operations ?
+A: You can create or delete cateogires, not anything else.
+
+Q: How can i create a new cateogry?
+A: Go to the dashboard and click "Create" button, you will find two options "Note" and "Category", simply select "Category" option.
+
+Q: Is there a filtring system ?
+A: Yes, you can find the filtering system in the header of the page.
+
+Q: Can i change the main logo of the application ?
+A: No, this permission is for the developer only.
+
+Q: How can i logout from my account?
+A: Click "profile" button in the right top of the page, you will see three options, logout, dashboard, settings, just select logout.
+
+Q: What is the name of the developer ?
+A: Eng.Motasem Rgeiy.

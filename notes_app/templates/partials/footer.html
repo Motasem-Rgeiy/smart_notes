@@ -1,0 +1,13 @@
+<div class="py-4 px-6 flex justify-between  bg-slate-900">
+    <div class="flex items-center gap-2">
+        <i class="fa-regular fa-copyright"></i>
+        <p>All Rights Reserved. Motasem Rgeiy<p>
+    </div>
+    {% if user.is_authenticated %}
+    <a class="p-2 flex items-center gap-3 hover:text-sky-400 transition duration-500" href="{% url "ai_chatbot" %}">
+        <span>Ask AI</span>
+        <i class="fa-solid fa-robot"></i>
+        
+    </a>
+    {% endif %}
+</div>

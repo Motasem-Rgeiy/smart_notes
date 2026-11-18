@@ -1,0 +1,183 @@
+{% load my_filters %}
+
+<div class="flex flex-col  bg-slate-900  py-5 items-center gap-4 md:flex-row md:py-4 md:px-5 md:justify-between xl:justify-around xl:py-2 xl:px-0">
+    <a href="{% url "note_list" %}">
+            <i class="fa-solid fa-notes-medical text-xl md:text-xl xl:text-3xl"></i>
+    </a>
+    {% if user.is_authenticated %}
+            
+            
+
+        <form class="flex justify-between w-1/2" id="filterForm" action="{% url "note_list"%}" method='GET'>
+             <div class="flex  justify-center items-center gap-6 w-full  md:w-fit  xl:justify-evenly">
+
+                <div>
+                    <select class="" name="order" id="orderSelect" onchange="document.getElementById('filterForm').submit();">
+                        
+                        <option name='create' value="{{request.session.order1}}" {% if request.GET.order == created_at|stringformat:"s" %}selected{% endif %}>{{request.session.order1}}</option>
+                        <option name='update' value="{{request.session.order2}}" {% if request.GET.order == updated_at|stringformat:"s" %}selected{% endif %}>{{request.session.order2}}</option>
+                    </select>
+            
+                </div>
+        
+
+               
+                <div class="flex items-center gap-2">
+                  
+                
+                    <select name="ca"  onchange="document.getElementById('filterForm').submit();">
+
+                       
+                        {% if first_cat_name %}
+                            <option onclick="document.getElementById('filterForm').submit();" value="{{first_cat_id}}" {% if request.GET.ca == cat.id|stringformat:"s" %}selected{% endif %}>{{first_cat_name}}</option>
+                        {% else %}
+                            <option value="">No categories</option>
+                        {% endif %}
+                     
+                        {% for cat in categories %}
+                            <option value="{{ cat.id }}" {% if request.GET.ca == cat.id|stringformat:"s" %}selected{% endif %}>
+                                {{ cat.name }}
+                            </option>
+                   
+                        {% endfor %}
+
+                         {% if last_cat_name %}
+                            <option  value="{{last_cat_id}}" {% if request.GET.ca == cat.id|stringformat:"s" %}selected{% endif %}>{{last_cat_name}}</option>
+                        {% endif %}
+
+
+                    </select>
+                    {% if categories and first_cat_id or first_cat_id %}                      
+                         <a 
+                            href="{% url "category_delete" first_cat_id %}" 
+                            class="flex h-10 w-10 items-center justify-center rounded-lg border border-transparent text-slate-400 transition-colors hover:border-red-200 hover:bg-red-50 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:hover:border-red-900/50 dark:hover:bg-red-950/30 dark:hover:text-red-400">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    {% endif %}
+
+               
+                </div>
+
+         </div>
+
+   
+            <div class="flex flex-col  gap-4 text-sm md:flex-col md:gap-4 p-2 xl:flex-row" action="{% url "note_list" %}" method='GET'>
+            
+                    <input class="p-1 w-48  bg-slate-950  rounded-lg outline-none shadow-slate-500 shadow-sm md:w-60 xl:p-3 xl:text-base" type="text" placeholder='Title or Description' value="{{request.GET.q}}" name="q">
+                    <button class="bg-green-900 flex items-center gap-2 
+                     px-9 py-1 self-center 
+                     rounded-lg cursor-pointer transition duration-500
+                      hover:bg-slate-700 focus:outline-1
+                      xl:py-2 xl:text-base">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>Search</span>
+                    </button>
+            </div>
+
+        </form>
+
+
+            <div class="flex flex-col">
+                
+                <button id="profile_btn" class="cursor-pointer flex flex-col items-center justify-center">
+
+                    {% if request.user.image %}
+                        <img class="w-16 h-16 rounded-full" src="{{request.user.image.url}}" alt="">
+                    {% else %}
+                         <i class="fa-solid fa-circle-user text-xl"></i>
+                    {% endif %}
+
+                    <h2 class="tracking-wider font-semibold">{{request.user.first_name|default:request.user.username|cut_name }}</h2>
+                </button>
+
+                <div id='profile-options' class="fixed z-50 right-50 hidden  flex-col gap-2 items-center ">
+
+                    <a  class="bg-sky-700 px-3 py-1 rounded-lg text-sm xl:px-5 xl:py-2 xl:text-sm
+                            cursor-pointer transition duration-500
+                                hover:bg-slate-700 focus:outline-1" href="{% url "dashboard" %}">
+                        <i class="fa-solid fa-bars"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    
+
+                    <a  class="bg-green-700 px-3 py-1 rounded-lg text-sm xl:px-7 xl:py-2 xl:text-sm
+                            cursor-pointer transition duration-500
+                                hover:bg-slate-700 focus:outline-1" href="{% url "profile" %}">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+
+                    <form class=""  action="{% url "logout" %}" method="POST">
+                            {% csrf_token %}
+                            <button class="bg-red-700 px-3 py-1 rounded-lg text-sm xl:px-7 xl:py-2 xl:text-sm
+                            cursor-pointer transition duration-500
+                                hover:bg-slate-700 focus:outline-1" type="submit">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                <span>Logout</span>
+                        </button>
+
+                    </form>
+
+                    
+
+                </div>
+
+            
+            </div>
+
+
+
+
+
+
+            
+  
+          
+
+        
+       
+
+
+        
+    
+
+    {% else %}
+        <div class=" flex w-1/4 justify-around p-2">
+                <a href="{% url "login" %}">
+                    {% csrf_token %}
+                    <button class="bg-green-700 px-3 py-1 rounded-lg text-sm xl:px-7 xl:py-2 xl:text-base
+                    cursor-pointer transition duration-500
+                        hover:bg-slate-700 focus:outline-1" type="submit">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Login</span>
+                    </button>
+
+                </a>
+
+
+                <a href="{% url "register" %}">
+                    {% csrf_token %}
+                    <button class="bg-green-700 px-3 py-1 rounded-lg text-sm xl:px-7 xl:py-2 xl:text-base
+                    cursor-pointer transition duration-500
+                        hover:bg-slate-700 focus:outline-1" type="submit">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <span>Register</span>
+                    </button>
+
+                </a>
+        </div>
+
+       
+
+    {% endif %}
+
+
+    
+
+</div>
+
+
+
+{% load static %}
+
+<script src="{% static "js/header.js" %}"></script>

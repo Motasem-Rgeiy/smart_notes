@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load i18n %}
+{% load my_filters %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="grow">
+    <div class="mt-4 flex flex-row  justify-center relative">
+
+        <div class="grid xl:grid-cols-3 w-3/4  gap-5 ">
+            {% for note in object_list %}
+
+
+                <div class="bg-slate-900  flex flex-col items-center py-2 rounded-lg gap-2">
+                    {% if note.image %}
+                        <img class="w-44 h-44  rounded-lg"
+                        src="{{note.image.url}}" alt="">
+                    {% else %}
+                        <img class="w-44 h-44 rounded-lg text-center flex items-center"
+                        src="" alt=" ">
+                    {% endif %}
+                    <div class="grow  flex flex-col items-center gap-2">
+                        <div class="flex flex-col items-center">
+                            <h1 class="font-bold tracking-wider overflow-hidden p-1">{{note.title|cut}}</h1>
+                            <p class="">{{note.get_status_display}}</p>
+                        
+                            <time class="font-semibold xl:text-sm" datetime="{{note.created_at}}">{{note.created_at|naturaltime}}</time>
+                        </div>
+                        <div class="flex gap-5">
+                            <a class="flex items-center gap-1 bg-green-900 px-7 py-1 rounded-lg cursor-pointer transition duration-500
+                      hover:bg-slate-700 focus:outline-1" href="{% url "note_update" note.id %}">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                                <span>Edit</span>
+                            </a>
+                            
+                            <a class="flex items-center gap-2 bg-red-600 px-5 py-1 rounded-lg cursor-pointer transition duration-500
+                      hover:bg-slate-700 focus:outline-1" href="{% url "note_delete" note.id %}">
+                                <i class="fa-solid fa-delete-left"></i>
+                                <span>Delete</span>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+                {% empty %}
+                <div class=" bg-red-600 col-span-3 flex flex-col justify-center mt-10">
+                        <div class="bg-slate-950 flex flex-col justify-center items-center gap-10">
+                            <h1 class="tracking-widest text-3xl font-semibold">No Notes</h1>
+                            <img class="mix-blend-screen" src="{% static "images/note_background.jpg" %}" alt="">
+                        </div>
+                </div>
+            
+            {% endfor %}
+            
+                
+        </div>
+
+          
+        <div class="absolute right-2 m-7">
+            <a class="text-xl bg-green-900 py-3 px-5 rounded-lg mt-14 cursor-pointer transition duration-500
+                      hover:bg-slate-700 focus:outline-1" href="{% url "note_create" %}">
+                <i class="fa-solid fa-plus"></i >
+                <span>Create</span>
+            </a>
+        <!--
+         
+                    <img class="rounded-lg mix-blend-screen" src="{% static 'images/note_background.jpg' %}" alt="Project Image">
+            
+            -->
+        </div>
+        
+    </div>
+
+
+    <div class="mx-4 mt-6 flex justify-center gap-3">
+    {% if page_obj.paginator.count > 0 %}
+
+
+        {% if page_obj.has_previous %}
+            <a class="p-2 pl-2 pr-4 bg-green-900 rounded-lg flex items-center gap-1" href="?page={{ page_obj.previous_page_number }}&ca={{ request.GET.ca }}&order={{ request.GET.order }}&q={{ request.GET.q }}">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Previous</span>
+            </a>
+        {% else %}
+
+            <a class="p-2 pl-2 pr-4 bg-slate-700 rounded-lg flex items-center gap-1 pointer-events-none opacity-50 select-none" href="">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Previous</span>
+            </a>
+        {% endif %}
+
+
+        {% if page_obj.has_next %}
+            <a class="p-2 pl-5 pr-5 bg-green-900 rounded-lg flex items-center gap-2" href="?page={{ page_obj.next_page_number }}&ca={{ request.GET.ca }}&order={{ request.GET.order }}&q={{ request.GET.q }}">
+                
+                <span>Next</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        {% else %}
+        
+            <a class="p-2 pl-5 pr-5 bg-slate-700 rounded-lg flex items-center gap-2 pointer-events-none opacity-50 select-none" href="">
+                <span>Next</span>
+                <i class="fa-solid fa-arrow-right "></i>
+        </a>
+
+        {% endif %}
+    {% endif %}
+
+
+    </div>
+</div>
+
+{% endblock  %}
